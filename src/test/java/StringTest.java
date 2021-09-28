@@ -16,24 +16,26 @@ public class StringTest {
 
     @Test
     void exceptionTest1() {
-        //assertThat("1,2".split(",")).containsExactly("1","2");
+        
         assertThatThrownBy(() -> {
             new Integer(1/0);
         }).isInstanceOf(ArithmeticException.class);
     }
     //요구사항2
+    @DisplayName("substring을 이용하여 지정한 문자열을 삭제후 나머지 문자열을 출력한다")
     @Test
     void substringTest() {
-        String a = "(1,2)";
+        String beforText = "(1,2)";
 
-        int target = a.indexOf("(");
-        int target2 = a.indexOf(")");
+        int indexOfLeftBracket  = beforText.indexOf("(");
+        int indexOfRightBracket  = beforText.indexOf(")");
 
-        String b = a.substring(target+1, target2);
-        System.out.println("b = " + b);
+        String afterText = beforText.substring(indexOfLeftBracket +1, indexOfRightBracket );
+        System.out.println("afterText = " + afterText);
     }
 
     //요구사항3
+    @DisplayName("문자열 abc 의 charAt()을 이용하여 출력 확인")
     @Test
     void charAtTest(){
         String test = "abc";
