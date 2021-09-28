@@ -25,22 +25,21 @@ public class StringTest {
     @DisplayName("substring을 이용하여 지정한 문자열을 삭제후 나머지 문자열을 출력한다")
     @Test
     void substringTest() {
-        String beforText = "(1,2)";
+        String beforeText = "(1,2)";
 
-        int indexOfLeftBracket  = beforText.indexOf("(");
-        int indexOfRightBracket  = beforText.indexOf(")");
+        int indexOfLeftBracket  = beforeText.indexOf("(");
+        int indexOfRightBracket  = beforeText.indexOf(")");
 
-        String afterText = beforText.substring(indexOfLeftBracket +1, indexOfRightBracket );
-        System.out.println("afterText = " + afterText);
+        String afterText = beforeText.substring(indexOfLeftBracket +1, indexOfRightBracket );
+        assertThat(afterText.equals("1,2"));
     }
 
     //요구사항3
-    @DisplayName("문자열 abc 의 charAt()을 이용하여 출력 확인")
+    @DisplayName("charAt()을 이용하여 문자열 abc 의 두번째 인덱스에 해당하는 값 b를 비교하면 정삭적으로 통과된다")
     @Test
     void charAtTest(){
-        String test = "abc";
-        char a = test.charAt(1);
-        System.out.println("a = " + a);
+
+        assertThat("abc".charAt(1)).isEqualTo('b');
     }
 
     @DisplayName("문자열 abc에 대해 charAt메서드를 사용하여 범위가벗어나게 index를 설정 하면 StringIndexOutOfBoundsException이 발생된다")
