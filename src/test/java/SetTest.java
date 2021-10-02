@@ -30,9 +30,7 @@ public class SetTest {
     @DisplayName("numbers를 size()메서드로 확인하면 중복값이 제거된 3개의 size로 출력되는것이 확인된다")
     @Test
     void sizeTest(){
-
         assertThat(numbers.size()).isEqualTo(3);
-
     }
 
     //요구사항2
@@ -50,7 +48,6 @@ public class SetTest {
     @ParameterizedTest
     @ValueSource(ints = {1,2,3})
     void containTest(int input){
-
         assertTrue(numbers.contains(input));
     }
 
@@ -58,15 +55,7 @@ public class SetTest {
     @DisplayName("CsvSource를 이용하여 벨류값을 1,2,3,4,5 를주어 각각 numbers의 값과 비교하면 1,2,3은 true, 4,5는 false로 떨어지는것을 알수있다.")
     @ParameterizedTest
     @CsvSource(value = {"true:1","true:2","true:3","false:4","false:5"},delimiter = ':')
-
-      void csvSourceTest(String trueORfalse, Integer number){
-        if(trueORfalse == "true"){
-            assertTrue(numbers.contains(number));
-        }else if(trueORfalse == "false"){
-            assertFalse(numbers.contains(number));
-        }
-
+      void csvSourceTest(boolean trueORfalse, Integer number){
+        assertThat(numbers.contains(number)).isEqualTo(trueORfalse);
     }
-
-
 }
