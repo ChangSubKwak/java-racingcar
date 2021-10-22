@@ -19,34 +19,39 @@ public class Calculator {
 
     //나누기
     public int divide(int a, int b) {
+
         try {
             return a / b;
-        }catch (Exception e){
-            System.out.println("0으로는 나누어지지 않습니다."); //0으로 나누어지지않는 부분 Exception 처리
+        }catch (ArithmeticException e){
+
+            System.out.println("0으로 나눌수 없습니다.");
+            return 0;
         }
-        return 0;
     }
 
     //사칙연산 메서드 이용
     public int calculate(int first, char sign, int second){
 
-        if(sign == '+')
+        if(sign == '+'){
             return plus(first, second);
+        }
 
-        if(sign == '-')
+        if(sign == '-'){
             return minus(first, second);
+        }
 
-        if(sign == '*')
+        if(sign == '*'){
             return multiply(first,second);
+        }
 
-        if(sign == '/')
+        if(sign == '/'){
             return divide(first, second);
-        else System.out.println("잘못된 값 입니다");
+        }
         throw new RuntimeException();
     }
 
     //공백나누기
-    public String[] space(String str){
+    public String[] diviedBlink(String str){
         return str.split(" ");
     }
 

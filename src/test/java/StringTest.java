@@ -16,7 +16,6 @@ public class StringTest {
 
     @Test
     void exceptionTest1() {
-        
         assertThatThrownBy(() -> {
             new Integer(1/0);
         }).isInstanceOf(ArithmeticException.class);
@@ -37,10 +36,7 @@ public class StringTest {
     //요구사항3
     @DisplayName("charAt()을 이용하여 문자열 abc 의 두번째 인덱스에 해당하는 값 b를 비교하면 정삭적으로 통과된다")
     @Test
-    void charAtTest(){
-
-        assertThat("abc".charAt(1)).isEqualTo('b');
-    }
+    void charAtTest(){assertThat("abc".charAt(1)).isEqualTo('b');}
 
     @DisplayName("문자열 abc에 대해 charAt메서드를 사용하여 범위가벗어나게 index를 설정 하면 StringIndexOutOfBoundsException이 발생된다")
     @Test
