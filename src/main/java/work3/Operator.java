@@ -24,7 +24,7 @@ public enum Operator {
             .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 연산자입니다."));
     }
 
-    public int calculate(Integer firstNumber, Integer secondNumber) {
+    public int calculate(int firstNumber, int secondNumber) {
         return expression.apply(firstNumber, secondNumber);
     }
 }

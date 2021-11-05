@@ -13,7 +13,7 @@ public class CalcuratorTest {
     Calculator calculator;
 
     @BeforeEach
-    public void SetUp() {
+    public void setUp() {
         calculator = new Calculator();
     }
 
@@ -76,9 +76,9 @@ public class CalcuratorTest {
     @Test
     @DisplayName("enum을 이용하여 연산자가 실행되는지 테스트한다")
     void enumTest() {
-		assertThat(5).isEqualTo(Operator.of("+").calculate(3,2));
-		assertThat(1).isEqualTo(Operator.of("-").calculate(3,2));
-		assertThat(4).isEqualTo(Operator.of("*").calculate(2,2));
-		assertThat(10).isEqualTo(Operator.of("/").calculate(100,10));
-	}
+        assertThat(5).isEqualTo(Operator.of("+").calculate(3, 2));
+        assertThat(1).isEqualTo(Operator.of("-").calculate(3, 2));
+        assertThat(4).isEqualTo(Operator.of("*").calculate(2, 2));
+        assertThat(10).isEqualTo(Operator.of("/").calculate(100, 10));
+    }
 }
