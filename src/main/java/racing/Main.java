@@ -5,17 +5,21 @@ public class Main {
     public static void main(String[] args) {
 
         InputView inputView = new InputView();
-        RacingEvent racingEvent = new RacingEvent(inputView.getCarCount(), inputView.getTryCount());
-
+        int carCount = inputView.getCarCount();
+        int tryCount = inputView.getTryCount();
+        RacingEvent racingEvent = new RacingEvent(carCount,tryCount);
         ResultView resultView = new ResultView();
 
-        for(int i = 1; i <= inputView.getTryCount(); i++){
-            for(Car car : racingEvent.getCarList()){
-                resultView.resultPosition(car.getPosition().get(i));
-            }
-            System.out.println("");
-            System.out.println("");
+        for(int i = 1; i <= tryCount; i++){
+            checkCars(racingEvent, resultView, i);
+            resultView.printResultSpace();
         }
+    }
 
+    private static void checkCars(RacingEvent racingEvent, ResultView resultView, int i) {
+        for(Cars cars : racingEvent.getCarList()){
+            resultView.printResultPosition(cars.getPosition().get(i));
+
+        }
     }
 }

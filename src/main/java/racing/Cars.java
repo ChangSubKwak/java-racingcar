@@ -2,10 +2,10 @@ package racing;
 
 import java.util.ArrayList;
 
-public class Car {
+public class Cars {
     private ArrayList<Integer> position;
 
-    public Car() {
+    public Cars() {
         position = new ArrayList<>();
         position.add(0);
     }

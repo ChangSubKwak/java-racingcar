@@ -4,27 +4,27 @@ import java.util.ArrayList;
 
 public class RacingEvent {
 
-    private ArrayList<Car> carList = new ArrayList<>();
+    private ArrayList<Cars> carsList = new ArrayList<>();
 
     public RacingEvent(int carCount, int tryCount){
         readyEvent(carCount);
         startEvent(tryCount);
     }
 
-    public ArrayList<Car> getCarList(){
-        return this.carList;
+    public ArrayList<Cars> getCarList(){
+        return this.carsList;
     }
 
     private void readyEvent(int count){
         for(int i = 0; i < count; i++){
-            carList.add(new Car());
+            carsList.add(new Cars());
         }
     }
 
     private void startEvent(int count){
         for(int i = 0; i < count; i++){
-            for(Car car : carList){
-                car.moveForward(new RandomMove().move());
+            for(Cars cars : carsList){
+                cars.moveForward(new RandomMove().move());
             }
         }
     }
